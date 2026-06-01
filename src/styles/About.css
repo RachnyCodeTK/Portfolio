@@ -1,0 +1,147 @@
+/* Section */
+.about-section {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: radial-gradient(circle at top, #0f172a, #020617); */
+}
+
+/* Glass Card */
+.about-container {
+  max-width: 90%;
+  padding: 50px;
+  border-radius: 20px;
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+
+  z-index: 1;
+  overflow: hidden;
+
+  transform: translateY(40px) scale(0.95);
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+
+/* Neon animated border */
+.about-container::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 20px;
+  padding: 2px;
+
+  background: linear-gradient(
+    90deg,
+    #38bdf8,
+    #8b5cf6,
+    #22c55e,
+    #f97316,
+    #38bdf8
+  );
+
+  background-size: 300% 300%;
+  animation: neonMove 4s linear infinite;
+
+  z-index: -1;
+  filter: blur(2px);
+}
+
+/* Inner dark overlay to keep content readable */
+.about-container::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 18px;
+  z-index: -1;
+}
+
+/* Animation movement */
+@keyframes neonMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.about-container:hover {
+  transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) scale(1.02);
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.4);
+}
+
+/* Scroll animation */
+.about-container.show {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* Title */
+.about-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #38bdf8;
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+/* Text */
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #cbd5e1;
+}
+
+/* 3D hover effect */
+.about-container:hover {
+  transform: perspective(1000px) rotateX(3deg) rotateY(-3deg);
+  box-shadow: 0 30px 80px rgba(56, 189, 248, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 30px;
+  }
+
+  .about-title {
+    font-size: 1.8rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+}
+
+/* Theme-aware overrides */
+.theme-toggle-wrapper {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+}
+
+.about-container.light-mode {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.about-container.light-mode::after {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.about-container.light-mode .about-title {
+  color: #0f172a;
+  text-shadow: none;
+}
+
+.about-container.light-mode .about-text {
+  color: #334155;
+}

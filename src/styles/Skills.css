@@ -1,0 +1,89 @@
+/* Section */
+.skills-section {
+  padding: 120px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: radial-gradient(circle at top, #0f172a, #020617); */
+}
+
+/* Container */
+.skills-container {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.skills-container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Title */
+.skills-title {
+  font-size: 2.2rem;
+  color: #38bdf8;
+  margin-bottom: 40px;
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+/* GRID */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.skill-card {
+  padding: 20px;
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.skill-card:hover {
+  transform: translateY(-8px) rotateX(3deg);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+}
+
+/* TEXT */
+.skill-card h3 {
+  color: #e2e8f0;
+  margin-bottom: 10px;
+}
+
+/* BAR */
+.bar {
+  width: 100%;
+  height: 10px;
+  background: #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #38bdf8, #8b5cf6);
+  border-radius: 10px;
+  transition: width 1.5s ease;
+}
+
+/* PERCENT */
+.skill-card span {
+  display: block;
+  margin-top: 8px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}

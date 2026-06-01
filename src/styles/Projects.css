@@ -1,0 +1,158 @@
+/* SECTION BACKGROUND */
+.projects-section {
+    padding: 10px 20px;
+    /* background: radial-gradient(circle at top, #0f172a, #020617); */
+    text-align: center;
+}
+
+/* TITLE */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #38bdf8;
+    margin-bottom: 50px;
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+/* GRID */
+.projects-container {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* PROJECT CARD */
+.project-card {
+    position: relative;
+    padding: 25px;
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: #e2e8f0;
+
+    transition: all 0.4s ease;
+    transform-style: preserve-3d;
+    cursor: pointer;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* HOVER 3D EFFECT */
+.project-card:hover {
+    transform: translateY(-10px) rotateX(6deg) rotateY(-6deg);
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.3);
+}
+
+/* IMAGE */
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-top: 15px;
+
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+/* TITLE */
+.project-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: #38bdf8;
+}
+
+/* DESCRIPTION */
+.project-card p {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin: 5px 0;
+}
+
+/* GLASS BORDER ANIMATION */
+.project-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 2px;
+
+    background: linear-gradient(90deg,
+            #38bdf8,
+            #8b5cf6,
+            #22c55e,
+            #f97316,
+            #38bdf8);
+
+    background-size: 300% 300%;
+    animation: glowMove 5s linear infinite;
+
+    z-index: -1;
+    filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* SHOW BORDER ON HOVER */
+.project-card:hover::before {
+    opacity: 1;
+}
+
+/* ANIMATION */
+@keyframes glowMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .project-card {
+        transform: none;
+    }
+
+    .project-card:hover {
+        transform: translateY(-8px);
+    }
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.project-links a {
+    padding: 6px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+}
+
+.project-links a:hover {
+    background: #38bdf8;
+    color: #0f172a;
+    transform: scale(1.05);
+}
